@@ -54,7 +54,7 @@ export default function HeroSection() {
           <div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
             <div className="flex"></div>
             <h1 className="mt-10 max-w-lg text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              A better way to ship your projects
+              A better way to search for rockets
             </h1>
             <p className="mt-6 text-sm leading-8 text-gray-600">
               Esse id magna consectetur fugiat non dolor in ad laboris magna

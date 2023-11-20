@@ -1,18 +1,25 @@
-import React from "react";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, {useState} from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
-<<<<<<< HEAD
 import { useSelector } from 'react-redux'
-
-=======
-import { categoriesData } from "../../data/categoriesData";
 import CategoryModal from "./categoryModal";
->>>>>>> 427b6a23d3f1962ed8cc06b219edbcfbd3cb85c2
 
-export default function Categories() {
+interface IRocketsProps{
+  rockets: any[]
+}
+
+export default function Categories({rockets}: IRocketsProps) {
   const [active, setActive] = React.useState(1);
-  const { rockets, loading } = useSelector((state:any) => state.rockets);
+  // const { rockets, loading } = useSelector((state:any) => state.rockets);
+  const [open, setOpen] = useState(false)
+  const [details, setDetails] = useState()
 
-console.log(rockets, "THE ROCKETS HEEHEHE")
+  const viewDetailsHandler = (data: any) => {
+    setDetails(data)
+    setOpen(!open)
+  }
+
   const getItemProps = (index: React.SetStateAction<number>) => ({
     className:
       active === index
@@ -34,20 +41,28 @@ console.log(rockets, "THE ROCKETS HEEHEHE")
   };
 
   return (
+    <>
+
+    {open &&  <CategoryModal open={open} setOpen={setOpen} details={details} />}
+
     <section className="md:px-20">
-      <div className="grid lg:grid-cols-6 p-10 md:grid-cols-4 grid-cols-2 gap-2 ">
+      <div className="grid lg:grid-cols-5 p-10 md:grid-cols-3 grid-cols-2 gap-2 ">
         {rockets?.map((rocket:any) => (
-          <div key={rocket.id}className="w-full rounded-lg cursor-pointer max-w-[10rem] mb-6 text-center text-gray-700">
+          <div
+          onClick = {() => viewDetailsHandler(rocket)} 
+          key={rocket.id}className="w-full rounded-lg cursor-pointer max-w-[15rem] mb-6 text-center text-gray-700 transition ease-in-out delay-150 bg-black hover:-translate-y-1 hover:scale-110 hover:bg-white duration-300 text-white  hover:text-black  ">
             <img
               src={rocket?.flickr_images[0]              }
-              className="w-full h-[12rem] max-w-[12rem]  overflow-hidden rounded-none border-2 border-gray-800 bg-transparent shadow-none"
+              className=" h-[12rem] w-[15rem]  overflow-hidden rounded-lg border-2  bg-transparent shadow-none"
             />
-            <h1 className="mt-3 text-md font-normal">
+            <h1 className="mt-3 text-sm py-2 font-bold">
               {rocket.name}
             </h1>
           </div>
         ))}
       </div>
+
+
       <div className="flex items-center justify-center bg-white px-4 py-3 sm:px-6">
         <div className="flex flex-1 justify-center sm:hidden">
           <button {...getItemProps(1)}>1</button>
@@ -93,11 +108,7 @@ console.log(rockets, "THE ROCKETS HEEHEHE")
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-    </section>
-=======
-      <CategoryModal />
+      </section>
     </>
->>>>>>> 427b6a23d3f1962ed8cc06b219edbcfbd3cb85c2
   );
 }
