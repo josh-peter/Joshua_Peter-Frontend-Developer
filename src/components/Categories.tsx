@@ -1,6 +1,7 @@
 import React from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import { categoriesData } from "../../data/categoriesData";
+import CategoryModal from "./categoryModal";
 
 export default function Categories() {
   const [active, setActive] = React.useState(1);
@@ -85,6 +86,7 @@ export default function Categories() {
           </div>
         </div>
       </div>
+      <CategoryModal />
     </>
   );
 }
