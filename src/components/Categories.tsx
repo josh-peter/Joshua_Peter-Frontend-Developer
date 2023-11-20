@@ -1,7 +1,12 @@
 import React from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+<<<<<<< HEAD
 import { useSelector } from 'react-redux'
 
+=======
+import { categoriesData } from "../../data/categoriesData";
+import CategoryModal from "./categoryModal";
+>>>>>>> 427b6a23d3f1962ed8cc06b219edbcfbd3cb85c2
 
 export default function Categories() {
   const [active, setActive] = React.useState(1);
@@ -88,6 +93,11 @@ console.log(rockets, "THE ROCKETS HEEHEHE")
           </div>
         </div>
       </div>
+<<<<<<< HEAD
     </section>
+=======
+      <CategoryModal />
+    </>
+>>>>>>> 427b6a23d3f1962ed8cc06b219edbcfbd3cb85c2
   );
 }
