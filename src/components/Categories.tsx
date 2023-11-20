@@ -1,10 +1,13 @@
 import React from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
-import { categoriesData } from "../../data/categoriesData";
+import { useSelector } from 'react-redux'
+
 
 export default function Categories() {
   const [active, setActive] = React.useState(1);
+  const { rockets, loading } = useSelector((state:any) => state.rockets);
 
+console.log(rockets, "THE ROCKETS HEEHEHE")
   const getItemProps = (index: React.SetStateAction<number>) => ({
     className:
       active === index
@@ -26,16 +29,16 @@ export default function Categories() {
   };
 
   return (
-    <>
-      <div className="grid-cols-1 self-center sm:px-8 sm:grid sm:grid-cols-2 md:grid-cols-5 md:px-28">
-        {categoriesData?.map((category) => (
-          <div className="w-full max-w-[10rem] mb-6 text-center text-gray-700">
+    <section className="md:px-20">
+      <div className="grid lg:grid-cols-6 p-10 md:grid-cols-4 grid-cols-2 gap-2 ">
+        {rockets?.map((rocket:any) => (
+          <div key={rocket.id}className="w-full rounded-lg cursor-pointer max-w-[10rem] mb-6 text-center text-gray-700">
             <img
-              src={category.imageUrl}
-              className="w-full max-w-[12rem] overflow-hidden rounded-none border-2 border-gray-800 bg-transparent shadow-none"
+              src={rocket?.flickr_images[0]              }
+              className="w-full h-[12rem] max-w-[12rem]  overflow-hidden rounded-none border-2 border-gray-800 bg-transparent shadow-none"
             />
-            <h1 className="mt-3 text-md font-normal uppercase">
-              {category.category}
+            <h1 className="mt-3 text-md font-normal">
+              {rocket.name}
             </h1>
           </div>
         ))}
@@ -85,6 +88,6 @@ export default function Categories() {
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 }

@@ -1,21 +1,18 @@
-import { useState } from "react";
-import { Dialog } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 
-export default function Example() {
+export default function HeroSection() {
   
 
   return (
-    <div className="bg-white overflow-hidden">
+    <section className="bg-white overflow-hidden">
       <header className="absolute inset-x-0 top-0 z-50 border-b border-stone-300">
         <nav className="flex items-center p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
+              <span className="sr-only">Space X</span>
               <img
                 className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                src="https://logos-world.net/wp-content/uploads/2020/09/SpaceX-Logo.png"
                 alt=""
               />
             </a>
@@ -85,11 +82,11 @@ export default function Example() {
               height={284}
               transform="translate(24 24)"
             >
-              <img src="/public/phone.png" alt="" />
+              <img src="/phone.png" alt="" />
             </foreignObject>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
