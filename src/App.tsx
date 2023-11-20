@@ -13,8 +13,6 @@ function App() {
 
   const searchHandler = (name:string, value:string) => {
     setAllRockets(rockets)
-    console.log(value, "THE VALUE HEHEHEHEHEHE")
-    console.log(allRockets, "IN HEREEEE")
     if (name === 'rocketName' && value !== ""){
       const filteredRes = allRockets?.filter((rocket: any) => rocket.name.toLowerCase().includes(value.toLowerCase()) ||  rocket.country.toLowerCase().includes(value.toLowerCase()));
       console.log(filteredRes, "THE FILTEREEEE")

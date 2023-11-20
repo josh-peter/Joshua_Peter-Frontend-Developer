@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Fragment, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 
